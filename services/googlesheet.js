@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function saveToGoogleSheet(data) {
+export async function saveToGooglesheet(data) {
   try {
     const response = await axios.post(process.env.GOOGLE_SHEET_WEB_APP_URL, data, {
       headers: {
