@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import { createSalesforceLead } from "./services/salesforce.js";
-import { saveToGoogleSheet } from "./services/googleSheet.js";
+import { saveToGooglesheet } from "./services/googlesheet.js";
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ app.post("/lead", async (req, res) => {
 
     console.log("Lead Received:", lead);
 
-    await saveToGoogleSheet(lead);
+    await saveToGooglesheet(lead);
 
     const sfResult = await createSalesforceLead(lead);
 
