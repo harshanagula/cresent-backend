@@ -9,21 +9,27 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
+const corsOptions = {
   origin: [
+    "https://candeurcrescent.com",
+    "https://www.candeurcrescent.com",
     "http://127.0.0.1:5500",
-    "http://localhost:5500"
+    "http://localhost:5500",
   ],
   methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+
+app.options("/lead", cors(corsOptions));
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Candeur Crescent backend is running"
+    message: "Candeur Crescent backend is running",
   });
 });
 
