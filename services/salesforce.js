@@ -15,32 +15,32 @@ export async function createSalesforceLead(data) {
 
   const accessToken = tokenResponse.data.access_token;
 
-  const payload = {
-    FirstName: data.firstName || "",
-    LastName: data.lastName || "",
-    Phone: data.phone || "",
-    Email: data.email || "",
-    whatsAppNo: data.phone || "",
+ const payload = {
+  FirstName: data.firstName || "",
+  LastName: data.lastName || "",
+  Phone: data.phone || "",
+  Email: data.email || "",
+  whatsAppNo: data.phone || "",
 
-    project: "Crescent",
+  project: "Crescent",
 
-    source: data.utm_source || "Website",
-    subSource: "Website",
-    firstEnquirySource: data.utm_source || "Website",
+  source: data.utm_source || "Website",
+  subSource: "Website",
+  firstEnquirySource: data.utm_source || "Website",
 
-    channel: "In House",
+  channel: "In House",
 
-    campaign: data.utm_campaign || "",
-    medium: data.utm_medium || "",
-    term: data.utm_term || "",
-    keyWord: data.utm_term || "",
+  campaign: data.utm_campaign || "",
+  medium: data.utm_medium || "",
+  term: data.utm_term || "",
+  keyWord: data.utm_term || "",
 
-    adSet: data.adset || "",
-    adName: data.adname || "",
+  adSet: data.adset || "",
+  adName: data.adname || "",
 
-    BudgetRange: data.budget || "",
-  };
-
+  BudgetRange: data.budget || "",
+  PreferredFlatSize: data.preferredSft || "",
+};
   const response = await axios.post(process.env.SF_LEAD_URL, payload, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
