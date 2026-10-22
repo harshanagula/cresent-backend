@@ -38,8 +38,8 @@ export async function createSalesforceLead(data) {
   adSet: data.adset || "",
   adName: data.adname || "",
 
-  BudgetRange: data.budget || "",
-  PreferredFlatSize: data.preferredSft || "",
+  Budget_Range1__c: data.budget || "",
+  SFT_Size1__c: data.preferredSft || "",
 };
   const response = await axios.post(process.env.SF_LEAD_URL, payload, {
     headers: {
